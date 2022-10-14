@@ -1186,6 +1186,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tile Ground 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6484036262286140978, guid: 2680bcb1068071845835316c549679df, type: 3}
+      propertyPath: m_Color.b
+      value: 0.047058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484036262286140978, guid: 2680bcb1068071845835316c549679df, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484036262286140978, guid: 2680bcb1068071845835316c549679df, type: 3}
+      propertyPath: m_Color.r
+      value: 0.069132455
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2680bcb1068071845835316c549679df, type: 3}
 --- !u!1001 &1662104065963207859
