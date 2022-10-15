@@ -469,7 +469,7 @@ Camera:
   far clip plane: 100
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 2.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -512,7 +512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a81bc95a4e2580e40874ac53cbc78497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 54358950}
+  player: {fileID: 584353568}
 --- !u!1 &584353567
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,6 +523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 584353568}
   - component: {fileID: 584353569}
+  - component: {fileID: 584353570}
   m_Layer: 0
   m_Name: Square
   m_TagString: Player
@@ -597,6 +598,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &584353570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584353567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6fdd17248d344e47994e7957d2dd2f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &866374858
 GameObject:
   m_ObjectHideFlags: 0

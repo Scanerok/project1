@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 		
 		
 	private Rigidbody2D rb;
-	private SpriteRenderer sprite;
+    private SpriteRenderer sprite;
     private Animator anim;
     private bool isGrounded = false;
 	
