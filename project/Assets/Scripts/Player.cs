@@ -7,8 +7,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed = 3f; // скорость движения
 	[SerializeField] private int lives = 5; // количество жизней
 	[SerializeField] private float jumpForce = 15f; // Сила прыжка
-	private bool isGrounded = false;
-	
+		
+		
 	private Rigidbody2D rb;
 	private SpriteRenderer sprite;
 	
@@ -21,16 +21,12 @@ public class Player : MonoBehaviour
 		
 	}
 	
-	private void FixedUpdate()
-	{
-		CheckGround();
-	}
-	
+		
 	private void Update()
 	{
 		 if (Input.GetButton("Horizontal"))
 			 Run();
-		 if (isGrounded && Input.GetButtonDown("Jump"))
+		 if (Input.GetButtonDown("Jump") && Mathf.Abs(rb.velocity.y) <0.05f) 
 			 Jump();
 	}
 	
@@ -48,9 +44,6 @@ public class Player : MonoBehaviour
 		rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
 	}
 	
-	private void CheckGround()
-	{
-		Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, 0.3f);
-		isGrounded = collider.Length > 1;
-	}
+	
+	
 }
