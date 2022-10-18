@@ -14,6 +14,9 @@ public class Player : MonoBehaviour
     private Animator anim;
     private bool isGrounded = false;
 	
+    public static Player Instance { get; set; }
+    
+
 	private States State
     {
         get { return (States)anim.GetInteger("state"); }
@@ -22,8 +25,9 @@ public class Player : MonoBehaviour
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
-		sprite = GetComponentInChildren<SpriteRenderer>();
+        sprite = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        Instance = this;
 	}
     private void FixedUpdate()
     {
@@ -46,13 +50,12 @@ public class Player : MonoBehaviour
 
 		Vector3 dir = transform.right * Input.GetAxis("Horizontal");
 		transform.position = Vector3.MoveTowards(transform.position, transform.position + dir, speed * Time.deltaTime);
-		sprite.flipX = dir.x < 0.0f;
+        sprite.flipX = dir.x < 0.0f;
 	}
 	
 	private void Jump()
 	{
         
-
         rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
 	}
 	
@@ -63,7 +66,13 @@ public class Player : MonoBehaviour
         if (!isGrounded) State = States.jump;
     }
 	
+    public void GetDamage()
+    {
+        lives -= 1;
+        Debug.Log(lives); 
+    }
 }
+    
 
 public enum States
 {
