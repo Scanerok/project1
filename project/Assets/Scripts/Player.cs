@@ -39,14 +39,14 @@ public class Player : MonoBehaviour
          if (isGrounded) State = States.idle;
 
 		 if (Input.GetButton("Horizontal"))
-			 Run();
+			 Walk();
 		 if (Input.GetButtonDown("Jump") && isGrounded) 
 			 Jump();
 	}
-	
-	private void Run()
+
+    private void Walk ()
 	{
-        if (isGrounded) State = States.run;
+        if (isGrounded) State = States.walk;
 
 		Vector3 dir = transform.right * Input.GetAxis("Horizontal");
 		transform.position = Vector3.MoveTowards(transform.position, transform.position + dir, speed * Time.deltaTime);
@@ -77,6 +77,7 @@ public class Player : MonoBehaviour
 public enum States
 {
     idle,
-    run,
-    jump
+    walk,
+    jump,
+    attack,
 }
