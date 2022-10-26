@@ -69,7 +69,9 @@ public class Player : MonoBehaviour
     public void GetDamage()
     {
         lives -= 1;
-        Debug.Log(lives); 
+        Debug.Log(lives);
+
+        State = States.hurt;
     }
 }
     
@@ -80,4 +82,6 @@ public enum States
     walk,
     jump,
     attack,
+    hurt,
+    death,
 }
