@@ -56,7 +56,6 @@ public class Player : MonoBehaviour
 	
 	private void Jump()
 	{
-        
         rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
 	}
 	

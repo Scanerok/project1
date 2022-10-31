@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
+
 
 public class Demon : Entity
 {
@@ -10,11 +10,10 @@ public class Demon : Entity
     public int positionOfPatrol;
     public Transform point;
     public float stoppingDistance;
+
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
-    
     private Animator anim;
-    [SerializeField] private AIPath aiPath;
 
     private States State
     {
@@ -26,6 +25,7 @@ public class Demon : Entity
     bool chill = false;
     bool angry = false;
     bool goBack = false;
+
     Transform player;
 
     // Start is called before the first frame update
@@ -68,8 +68,7 @@ public class Demon : Entity
         {
             GoBack();
         }
-
-        sprite.flipX = aiPath.desiredVelocity.x <= 0.01f;
+        sprite.flipX = !moveingRight;
     }
 
 
@@ -79,15 +78,17 @@ public class Demon : Entity
         if (transform.position.x > point.position.x + positionOfPatrol)
         {
             moveingRight = false;
+        
         }
         else if (transform.position.x < point.position.x - positionOfPatrol)
         {
             moveingRight = true;
+        
         }
 
         if (moveingRight)
         {
-           
+            
             transform.position = new Vector2(transform.position.x + speed * Time.deltaTime, transform.position.y);
             State = States.walk;
             
@@ -95,11 +96,10 @@ public class Demon : Entity
         else
         {
 
-            sprite.flipX = true;
+            
             transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y);
             State = States.walk;
             
-
         }
 
     }
@@ -123,7 +123,6 @@ public class Demon : Entity
             Player.Instance.GetDamage();
         }
     }
-
 
 
     public void GetDamage()
