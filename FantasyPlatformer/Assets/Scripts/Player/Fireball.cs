@@ -16,6 +16,7 @@ public class Fireball : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
+        
     }
 
     private void Update()
@@ -30,9 +31,11 @@ public class Fireball : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        hit = true;
-        boxCollider.enabled = false;
-        anim.SetTrigger("explode");
+                           
+            hit = true;
+            boxCollider.enabled = false;
+            anim.SetTrigger("explode");
+        
     }
 
     public void SetDirection(float _direction)
